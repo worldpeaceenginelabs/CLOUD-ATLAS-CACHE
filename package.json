@@ -11,7 +11,7 @@
   "dependencies": {
     "trystero": "^2.0.0",
     "node-datachannel": "^1.6.0",
-    "level": "^7.1.0"
+    "level": "^10.0.0"
   },
   "devDependencies": {
     "typescript": "^5.2.0",
