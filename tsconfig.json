@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es2020",               // Target modern JavaScript
+      "lib": ["es2020", "dom"],        // Include libraries for ES2020 and DOM
+      "module": "commonjs",            // Use CommonJS for Node.js
+      "strict": true,                  // Enable strict type-checking
+      "checkJs": false,                // Disable type-checking for JavaScript files
+      "allowJs": true,                 // Allow importing .js files
+      "esModuleInterop": true          // Enable smooth interop with ES modules
+    },
+    "include": ["src/**/*"],           // Include all TypeScript files in the src folder
+    "exclude": ["node_modules"]        // Exclude dependencies
+  }
