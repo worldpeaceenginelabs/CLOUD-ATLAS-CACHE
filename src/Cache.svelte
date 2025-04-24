@@ -1,5 +1,6 @@
 <script lang="ts">
   import { joinRoom } from 'trystero';
+  import {RTCPeerConnection} from 'node-datachannel/polyfill'
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
   import { coordinates } from './store.js';
@@ -289,8 +290,12 @@ const trysteroroomname = import.meta.env.VITE_TRYSTERO_ROOM_NAME;
 // *******************************
 
   // Trystero logic
-  const config = { appId: 'username' };
-  const room = joinRoom(config, trysteroroomname);
+  // const config = { appId: 'username' };
+  // const room = joinRoom(config, trysteroroomname);
+
+  const room = joinRoom({appId: 'username', rtcPolyfill: RTCPeerConnection},
+  trysteroroomname
+)
 // FOR LIVE EDIT: const room = joinRoom(config, '123456'); 
 // FULLY FUNCTIONAL BUT THE GLOBE IS INVISIBLE.
 // TO USE THE GLOBE IN LIVE EDIT GET A FREE API KEY AT https://ion.cesium.com/ 

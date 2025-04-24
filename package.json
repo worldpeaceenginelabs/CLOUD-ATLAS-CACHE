@@ -1,5 +1,5 @@
 {
-  "name": "metaverse-seed",
+  "name": "cloud-atlas-os-cache",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,7 +22,6 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "cesium": "^1.127.0",
-    "trystero": "^0.18.0"
+    "trystero": "^0.21.3"
   }
 }
