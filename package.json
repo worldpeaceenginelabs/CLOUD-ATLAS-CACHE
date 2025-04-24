@@ -9,8 +9,8 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "trystero": "^2.0.0",
-    "node-datachannel": "^1.6.0",
+    "trystero": "^0.21.3",
+    "node-datachannel": "^0.26.0",
     "level": "^10.0.0"
   },
   "devDependencies": {
