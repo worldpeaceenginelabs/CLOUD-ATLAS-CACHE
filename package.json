@@ -22,6 +22,7 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "trystero": "^0.21.3"
+    "trystero": "^0.21.3",
+    "node-datachannel": "^0.26.0"
   }
 }
