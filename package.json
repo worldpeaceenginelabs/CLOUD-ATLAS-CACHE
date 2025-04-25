@@ -1,0 +1,13 @@
+{
+    "name": "cloud-atlas-os-cache",
+    "version": "1.0.0",
+    "description": "Puppeteer automation server",
+    "main": "puppeteer-runner.js",
+    "scripts": {
+      "start": "node puppeteer-runner.js"
+    },
+    "dependencies": {
+      "puppeteer": "^24.7.2"
+    }
+  }
+  
