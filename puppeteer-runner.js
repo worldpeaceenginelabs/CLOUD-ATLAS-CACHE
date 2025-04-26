@@ -9,9 +9,24 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const serveDist = async () => {
   const server = createServer(async (req, res) => {
     const filePath = req.url === '/' ? '/index.html' : req.url;
+
+    const mimeTypes = {
+      '.html': 'text/html',
+      '.js': 'application/javascript',
+      '.css': 'text/css',
+      '.json': 'application/json',
+      '.wasm': 'application/wasm',
+      '.png': 'image/png',
+      '.jpg': 'image/jpeg',
+      '.svg': 'image/svg+xml',
+    };
+
     try {
-      const file = await readFile(path.join(__dirname, filePath));
-      res.writeHead(200);
+      const fullPath = path.join(__dirname, filePath);
+      const file = await readFile(fullPath);
+      const ext = path.extname(filePath);
+      const contentType = mimeTypes[ext] || 'application/octet-stream';
+      res.writeHead(200, { 'Content-Type': contentType });
       res.end(file);
     } catch {
       res.writeHead(404);

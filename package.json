@@ -1,7 +1,8 @@
 {
     "name": "cloud-atlas-os-cache",
     "version": "1.0.0",
-    "description": "Puppeteer automation server",
+    "description": "Your Trystero Browser App on Node",
+    "type": "module",
     "main": "puppeteer-runner.js",
     "scripts": {
       "start": "node puppeteer-runner.js"
