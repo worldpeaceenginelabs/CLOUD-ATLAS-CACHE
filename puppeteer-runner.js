@@ -35,8 +35,8 @@ const serveDist = async () => {
   });
 
   return new Promise((resolve) => {
-    server.listen(3000, () => {
-      console.log('🚀 Local server running at http://localhost:3000');
+    server.listen(3000, '0.0.0.0', () => {
+      console.log('🚀 Local server running at http://0.0.0.0:3000');
       resolve(server);
     });
   });
@@ -65,7 +65,7 @@ const launchBrowser = async () => {
   page.on('error', err => console.error('[PAGE ERROR]', err));
   page.on('pageerror', err => console.error('[PAGE EXCEPTION]', err));
 
-  await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
+  await page.goto('https://cloudatlas.club/', { waitUntil: 'networkidle0' });
   console.log('✅ App loaded in headless browser');
 
   return { browser };
