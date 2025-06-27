@@ -1,46 +1,4 @@
 import puppeteer from 'puppeteer';
-import { createServer } from 'http';
-import { readFile } from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const serveDist = async () => {
-  const server = createServer(async (req, res) => {
-    const filePath = req.url === '/' ? '/index.html' : req.url;
-
-    const mimeTypes = {
-      '.html': 'text/html',
-      '.js': 'application/javascript',
-      '.css': 'text/css',
-      '.json': 'application/json',
-      '.wasm': 'application/wasm',
-      '.png': 'image/png',
-      '.jpg': 'image/jpeg',
-      '.svg': 'image/svg+xml',
-    };
-
-    try {
-      const fullPath = path.join(__dirname, filePath);
-      const file = await readFile(fullPath);
-      const ext = path.extname(filePath);
-      const contentType = mimeTypes[ext] || 'application/octet-stream';
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(file);
-    } catch {
-      res.writeHead(404);
-      res.end('Not found');
-    }
-  });
-
-  return new Promise((resolve) => {
-    server.listen(3000, '0.0.0.0', () => {
-      console.log('🚀 Local server running at http://0.0.0.0:3000');
-      resolve(server);
-    });
-  });
-};
 
 const launchBrowser = async () => {
   const browser = await puppeteer.launch({
@@ -56,7 +14,7 @@ const launchBrowser = async () => {
       '--enable-features=WebRTC-HW-Decoding,WebRTC-HW-Encoding',
     ],
     defaultViewport: null,
-    userDataDir: path.join(__dirname, 'puppeteer-profile'),
+    userDataDir: './puppeteer-profile',
   });
 
   const page = await browser.newPage();
@@ -72,8 +30,6 @@ const launchBrowser = async () => {
 };
 
 const runLoop = async () => {
-  await serveDist();
-
   while (true) {
     let browser = null;
     try {
