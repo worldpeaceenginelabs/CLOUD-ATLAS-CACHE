@@ -3,6 +3,7 @@ import puppeteer from 'puppeteer';
 const launchBrowser = async () => {
   const browser = await puppeteer.launch({
     headless: 'new',
+    executablePath: puppeteer.executablePath(),
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
