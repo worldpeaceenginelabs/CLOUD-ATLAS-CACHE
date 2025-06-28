@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 const launchBrowser = async () => {
   const browser = await puppeteer.launch({
     headless: 'new',
-    executablePath: puppeteer.executablePath(),
+    // executablePath: puppeteer.executablePath(), // Skip this line if Chrome/Chromium is available globally, or update the path to match your local Chrome/Chromium installation.
     args: [
       '--no-sandbox',
       '--disable-setuid-sandbox',
